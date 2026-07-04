@@ -42,7 +42,7 @@ export default defineConfig({
   reporter: [['list'], ['html', { open: 'never', outputFolder: htmlReportDir }]],
   use: {
     baseURL,
-    trace: 'on-first-retry',
+    trace: projectConfig.traceMode as 'on' | 'off' | 'on-first-retry' | 'retain-on-failure',
     screenshot: projectConfig.screenshotMode as 'on' | 'off' | 'only-on-failure',
     video: {
       mode: projectConfig.videoMode as 'on' | 'off' | 'retain-on-failure',

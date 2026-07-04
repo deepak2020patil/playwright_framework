@@ -21,14 +21,20 @@ pipeline {
 
     stage('Publish Report') {
       steps {
-        publishHTML(target: [
-          allowMissing: true,
-          alwaysLinkToLastBuild: true,
-          keepAll: true,
-          reportDir: 'playwright-report',
-          reportFiles: 'index.html',
-          reportName: 'Playwright Report'
-        ])
+        script {
+          // Find the latest test-results folder
+          def latestReport = bat(script: '@powershell -NoProfile -Command "Get-ChildItem test-results -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName"', returnStdout: true).trim()
+          if (latestReport) {
+            publishHTML(target: [
+              allowMissing: true,
+              alwaysLinkToLastBuild: true,
+              keepAll: true,
+              reportDir: "${latestReport}\\report",
+              reportFiles: 'index.html',
+              reportName: 'Playwright Report'
+            ])
+          }
+        }
       }
     }
   }

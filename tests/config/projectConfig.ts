@@ -6,8 +6,12 @@ export const projectConfig = {
   outputFolder: process.env.OUTPUT_FOLDER || 'test-results',
   logFileName: process.env.LOG_FILE_NAME || 'execution.log',
   screenshotMode: process.env.SCREENSHOT_MODE || 'only-on-failure',
+  enableStepScreenshots: process.env.ENABLE_STEP_SCREENSHOTS === 'true' || false,
   videoMode: process.env.VIDEO_MODE || 'retain-on-failure',
+  enableStepVideos: process.env.ENABLE_STEP_VIDEOS === 'true' || false,
   videoFolder: process.env.VIDEO_FOLDER || path.resolve(process.cwd(), 'videos'),
+  traceMode: process.env.TRACE_MODE || 'on-first-retry',
+  enableTraceAttachments: process.env.ENABLE_TRACE_ATTACHMENTS === 'true' || false,
   uiBaseUrl: process.env.UI_BASE_URL || 'https://playwright.dev/',
   apiBaseUrl: process.env.API_BASE_URL || 'https://automationexercise.com/api/productsList',
 };
@@ -20,7 +24,7 @@ export type ProxyConfig = {
 };
 
 export function loadProxyConfig(): ProxyConfig {
-  const proxyFilePath = path.resolve(process.cwd(), 'proxy-config.json');
+  const proxyFilePath = path.resolve(process.cwd(), 'config', 'proxy-config.json');
 
   if (!fs.existsSync(proxyFilePath)) {
     return {};
