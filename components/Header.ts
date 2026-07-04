@@ -1,0 +1,13 @@
+import { Locator, Page } from '@playwright/test';
+
+export class Header {
+  private readonly brandLink: Locator;
+
+  constructor(private page: Page) {
+    this.brandLink = this.page.locator('a.navbar__brand');
+  }
+
+  async getBrandLinkHref() {
+    return this.brandLink.getAttribute('href');
+  }
+}

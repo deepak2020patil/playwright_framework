@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "playwright": "^1.60.0",
+    "xlsx": "^0.18.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^25.9.1"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:local": "playwright test",
+    "test:all": "playwright test --project=chromium --project=firefox --project=webkit",
+    "test:hub": "node scripts/run-playwright.js",
+    "posttest": "node scripts/consolidate-results.js"
+  }
+}
