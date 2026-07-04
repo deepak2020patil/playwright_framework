@@ -4,7 +4,8 @@ import path from 'path';
 import { getRunFolderName, loadProxyConfig, projectConfig } from './tests/config/projectConfig';
 
 const isCI = Boolean(process.env.CI);
-const baseURL = process.env.BASE_URL || 'https://playwright.dev';
+// Use the UI base URL defined in .env via projectConfig.
+const baseURL = projectConfig.uiBaseUrl || 'https://playwright.dev';
 const hubURL = process.env.HUB_URL || '';
 const runInRemoteGrid = Boolean(hubURL);
 const proxyConfig = loadProxyConfig();

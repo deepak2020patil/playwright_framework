@@ -1,17 +1,22 @@
-/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { BrowserContext } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { Browser, BrowserContext, Page } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 import { projectConfig } from '../tests/config/projectConfig';
 
+export type StepVideoSession = {
+  context: BrowserContext;
+  page: Page;
+  stepName: string;
+};
+
 export class VideoUtil {
   /**
-   * Start recording video for the current context at a specific step
-   * @param context - Playwright browser context
-   * @param stepName - Name of the step being recorded (used for video file naming)
-   * @returns Video path if recording started, null otherwise
+   * Start recording a step-level video in a new temporary browser context.
+   * @param browser - Playwright browser object
+   * @param stepName - Name of the step being recorded
+   * @returns StepVideoSession if recording starts successfully, null otherwise
    */
-  static startStepRecording(context: BrowserContext, stepName: string): string | null {
-    // Only record if step videos are enabled
+  static async startStepRecording(browser: Browser, stepName: string): Promise<StepVideoSession | null> {
     if (!projectConfig.enableStepVideos) {
       return null;
     }
@@ -19,15 +24,52 @@ export class VideoUtil {
     const videoDir = path.resolve(projectConfig.videoFolder);
     fs.mkdirSync(videoDir, { recursive: true });
 
-    const videoFileName = `step_${stepName}_${Date.now()}.webm`;
-    const videoPath = path.join(videoDir, videoFileName);
-
     try {
-      // Start recording video for the context
-      // Note: This is for context-level video recording if supported
-      return videoPath;
+      const stepContext = await browser.newContext({
+        recordVideo: {
+          dir: videoDir,
+          size: { width: 1280, height: 720 },
+        },
+      });
+      const stepPage = await stepContext.newPage();
+      return {
+        context: stepContext,
+        page: stepPage,
+        stepName,
+      };
     } catch (error) {
       console.warn(`Failed to start step video recording: ${error}`);
+      return null;
+    }
+  }
+
+  /**
+   * Stop recording a step-level video and return the saved file path.
+   */
+  static async stopStepRecording(session: StepVideoSession): Promise<string | null> {
+    if (!session) {
+      return null;
+    }
+
+    try {
+      const video = session.page.video();
+      await session.page.close();
+      const originalVideoPath = video ? await video.path() : null;
+      await session.context.close();
+
+      if (!originalVideoPath || !fs.existsSync(originalVideoPath)) {
+        return null;
+      }
+
+      const videoDir = path.dirname(originalVideoPath);
+      const renamedVideoPath = path.join(
+        videoDir,
+        `step_${session.stepName}_${Date.now()}.webm`
+      );
+      fs.renameSync(originalVideoPath, renamedVideoPath);
+      return renamedVideoPath;
+    } catch (error) {
+      console.warn(`Failed to stop step video recording: ${error}`);
       return null;
     }
   }

@@ -1,4 +1,6 @@
-/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import fs from 'fs';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */
+import 'dotenv/config';
+import fs from 'fs';
 import path from 'path';
 
 export const projectConfig = {
@@ -12,6 +14,7 @@ export const projectConfig = {
   videoFolder: process.env.VIDEO_FOLDER || path.resolve(process.cwd(), 'videos'),
   traceMode: process.env.TRACE_MODE || 'on-first-retry',
   enableTraceAttachments: process.env.ENABLE_TRACE_ATTACHMENTS === 'true' || false,
+  // UI and API base URLs are configured only via .env and consumed across the framework.
   uiBaseUrl: process.env.UI_BASE_URL || 'https://playwright.dev/',
   apiBaseUrl: process.env.API_BASE_URL || 'https://automationexercise.com/api/productsList',
 };

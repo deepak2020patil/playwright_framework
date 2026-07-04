@@ -8,9 +8,8 @@ export class TraceUtil {
    * Traces are stored in test-results/test_XXXX/artifacts/
    */
   static getTraceDir(): string {
-    // This would be called from within a test context
-    // For now, return a default path
-    return path.resolve(projectConfig.outputFolder, 'traces');
+    const runId = process.env.PLAYWRIGHT_RUN_ID || '';
+    return path.resolve(projectConfig.outputFolder, runId, 'artifacts');
   }
 
   /**
