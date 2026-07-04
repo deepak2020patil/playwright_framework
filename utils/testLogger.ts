@@ -1,4 +1,4 @@
-import fs from 'fs';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import fs from 'fs';
 import path from 'path';
 import { getRunFolderName, projectConfig } from '../tests/config/projectConfig';
 
@@ -22,3 +22,4 @@ export class TestLogger {
     console.log(message);
   }
 }
+

@@ -1,4 +1,4 @@
-const { spawn } = require('child_process');
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */const { spawn } = require('child_process');
 
 const hubUrl = process.env.HUB_URL || 'http://localhost:4444/playwright/playwright.js';
 const args = ['test'];
@@ -15,3 +15,4 @@ const child = spawn(process.platform === 'win32' ? 'npx.cmd' : 'npx', ['playwrig
 child.on('exit', (code) => {
   process.exit(code ?? 1);
 });
+

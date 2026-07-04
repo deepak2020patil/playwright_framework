@@ -1,4 +1,4 @@
-import { chromium, FullConfig } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { chromium, FullConfig } from '@playwright/test';
 
 async function globalSetup(config: FullConfig) {
   const browser = await chromium.launch();
@@ -9,3 +9,4 @@ async function globalSetup(config: FullConfig) {
 }
 
 export default globalSetup;
+

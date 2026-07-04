@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { test, expect } from '@playwright/test';
 import { projectConfig } from '../config/projectConfig';
 import { ApiMethods } from '../../utils/apiMethods';
 import { Logger } from '../../utils/logger';
@@ -21,3 +21,4 @@ test('API common methods and logger work', async ({ request }) => {
   expect(body).toHaveProperty('products');
   expect(body).toHaveProperty('responseCode', 200);
 });
+

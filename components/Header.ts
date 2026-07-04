@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { Locator, Page } from '@playwright/test';
 
 export class Header {
   private readonly brandLink: Locator;
@@ -11,3 +11,4 @@ export class Header {
     return this.brandLink.getAttribute('href');
   }
 }
+

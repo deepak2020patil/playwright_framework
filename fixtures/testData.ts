@@ -1,4 +1,4 @@
-import fs from 'fs';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import fs from 'fs';
 import path from 'path';
 import XLSX from 'xlsx';
 
@@ -38,3 +38,4 @@ export function readExcelTestData(): TestCase[] {
     }))
     .filter((row) => row.name);
 }
+

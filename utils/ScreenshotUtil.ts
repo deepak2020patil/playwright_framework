@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { Page } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 import { projectConfig } from '../tests/config/projectConfig';
@@ -28,3 +28,4 @@ export class ScreenshotUtil {
     return projectConfig.enableStepScreenshots;
   }
 }
+

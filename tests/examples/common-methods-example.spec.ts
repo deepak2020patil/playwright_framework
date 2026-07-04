@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { test, expect } from '@playwright/test';
 import { HomePage } from '../../pages/HomePage';
 import { projectConfig } from '../config/projectConfig';
 import { TestLogger } from '../../utils/testLogger';
@@ -19,3 +19,4 @@ test('common methods work for basic UI actions', async ({ page }) => {
   logger.write(`Home link href: ${href}`);
   expect(href).toContain('/');
 });
+

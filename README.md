@@ -1,4 +1,4 @@
-# Playwright Framework
+> Framework created by Deepak Patil <deepakpatil.slk@gmail.com>\n# Playwright Framework
 
 A scalable Playwright + TypeScript automation framework with a page-object-style structure, reusable utilities, API helpers, proxy support, logging, fixtures, and configurable artifacts.
 
@@ -297,3 +297,4 @@ Update proxy-config.json with your proxy details:
   "password": "your-password"
 }
 ```
+

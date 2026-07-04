@@ -1,4 +1,4 @@
-const fs = require('fs');
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */const fs = require('fs');
 const path = require('path');
 
 const resultsRoot = path.resolve(__dirname, '..', 'test-results');
@@ -43,3 +43,4 @@ for (const olderRun of runFolders.slice(1)) {
 }
 
 console.log(`Preserved consolidated run: ${latestRun.name}`);
+

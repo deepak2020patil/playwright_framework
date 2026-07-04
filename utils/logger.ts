@@ -1,4 +1,4 @@
-export class Logger {
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */export class Logger {
   info(message: string) {
     console.log(`[INFO] ${message}`);
   }
@@ -11,3 +11,4 @@ export class Logger {
     console.log(`[DEBUG] ${message}`);
   }
 }
+

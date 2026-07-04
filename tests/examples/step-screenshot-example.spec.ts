@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { test, expect } from '@playwright/test';
 import { HomePage } from '../../pages/HomePage';
 import { projectConfig } from '../config/projectConfig';
 import { ScreenshotUtil } from '../../utils/ScreenshotUtil';
@@ -29,3 +29,4 @@ test('step screenshot example - takes screenshots at each step when enabled', as
 
   logger.write('Test completed successfully');
 });
+

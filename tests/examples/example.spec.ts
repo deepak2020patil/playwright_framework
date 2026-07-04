@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { test, expect } from '@playwright/test';
 import { projectConfig } from '../config/projectConfig';
 
 test('UI example - Playwright homepage loads', async ({ page }) => {
@@ -16,3 +16,4 @@ test('API example - products list returns success', async ({ request }) => {
   const body = await response.json();
   expect(body).toHaveProperty('products');
 });
+

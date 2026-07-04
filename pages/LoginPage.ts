@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { Page } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class LoginPage extends BasePage {
@@ -12,3 +12,4 @@ export class LoginPage extends BasePage {
     await this.page.click('button[type="submit"]');
   }
 }
+

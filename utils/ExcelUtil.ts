@@ -1,4 +1,4 @@
-import XLSX from 'xlsx';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import XLSX from 'xlsx';
 
 export class ExcelUtil {
   readSheet(filePath: string) {
@@ -6,3 +6,4 @@ export class ExcelUtil {
     return workbook.Sheets[workbook.SheetNames[0]];
   }
 }
+

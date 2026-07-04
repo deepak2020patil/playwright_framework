@@ -1,4 +1,4 @@
-import { test, expect, ReportUtil } from '../../fixtures/reportFixture';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { test, expect, ReportUtil } from '../../fixtures/reportFixture';
 import { HomePage } from '../../pages/HomePage';
 import { projectConfig } from '../config/projectConfig';
 import { TraceUtil } from '../../utils/TraceUtil';
@@ -42,3 +42,4 @@ test('trace configuration example - traces recorded and optionally attached to r
 
   logger.write('Test completed - trace recorded and available for analysis');
 });
+

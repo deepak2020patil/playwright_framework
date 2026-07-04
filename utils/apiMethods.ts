@@ -1,4 +1,4 @@
-import { APIRequestContext, APIResponse } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { APIRequestContext, APIResponse } from '@playwright/test';
 import { Logger } from './logger';
 
 export class ApiMethods {
@@ -41,3 +41,4 @@ export class ApiMethods {
     }
   }
 }
+

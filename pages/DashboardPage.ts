@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { Page } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class DashboardPage extends BasePage {
@@ -10,3 +10,4 @@ export class DashboardPage extends BasePage {
     return this.page.locator('h1').first().textContent();
   }
 }
+

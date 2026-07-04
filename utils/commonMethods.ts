@@ -1,4 +1,4 @@
-import { Locator, Page, expect } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { Locator, Page, expect } from '@playwright/test';
 import { Logger } from './logger';
 
 export type ElementLike = Locator | string;
@@ -66,3 +66,4 @@ export class CommonMethods {
     await page.bringToFront();
   }
 }
+

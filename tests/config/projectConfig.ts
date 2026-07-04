@@ -1,4 +1,4 @@
-import fs from 'fs';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import fs from 'fs';
 import path from 'path';
 
 export const projectConfig = {
@@ -54,3 +54,4 @@ export function getRunFolderName(): string {
   process.env.PLAYWRIGHT_RUN_ID = runFolderName;
   return runFolderName;
 }
+

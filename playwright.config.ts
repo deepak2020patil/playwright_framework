@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { defineConfig, devices } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 import { getRunFolderName, loadProxyConfig, projectConfig } from './tests/config/projectConfig';
@@ -80,3 +80,4 @@ export default defineConfig({
   outputDir: outputDir,
   testIgnore: ['**/fixtures/**'],
 });
+

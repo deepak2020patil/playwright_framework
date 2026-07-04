@@ -1,4 +1,4 @@
-import { test, expect, ReportUtil } from '../../fixtures/reportFixture';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { test, expect, ReportUtil } from '../../fixtures/reportFixture';
 import { HomePage } from '../../pages/HomePage';
 import { projectConfig } from '../config/projectConfig';
 import { ScreenshotUtil } from '../../utils/ScreenshotUtil';
@@ -47,3 +47,4 @@ test('enhanced report - step screenshots and videos attached to HTML report', as
 
   logger.write('Test completed - all steps attached to HTML report');
 });
+

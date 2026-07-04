@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { Page } from '@playwright/test';
 
 export class BasePage {
   constructor(protected page: Page) {}
@@ -7,3 +7,4 @@ export class BasePage {
     await this.page.goto(url);
   }
 }
+

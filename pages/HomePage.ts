@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+/** Framework created by Deepak Patil <deepakpatil.slk@gmail.com> */import { Page } from '@playwright/test';
 import { HeaderComponent } from '../components/HeaderComponent';
 
 export class HomePage {
@@ -20,3 +20,4 @@ export class HomePage {
     return this.header.getBrandLinkHref();
   }
 }
+
