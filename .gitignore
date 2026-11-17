@@ -7,3 +7,6 @@ node_modules/
 /playwright/.auth/
 /videos/
 /screenshots/
+
+# Playwright
+/playwright-report/
