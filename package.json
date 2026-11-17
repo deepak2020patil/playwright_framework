@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "playwright": "^1.60.0",
+    "playwright": "^1.65.1",
     "xlsx": "^0.18.3"
   },
   "devDependencies": {
@@ -9,8 +9,11 @@
     "dotenv": "^17.4.2"
   },
   "scripts": {
+    "pretest": "node scripts/preflight.js",
     "test": "playwright test",
+    "pretest:local": "node scripts/preflight.js",
     "test:local": "playwright test",
+    "pretest:all": "node scripts/preflight.js",
     "test:all": "playwright test --project=chromium --project=firefox --project=webkit",
     "test:hub": "node scripts/run-playwright.js",
     "posttest": "node scripts/consolidate-results.js"
