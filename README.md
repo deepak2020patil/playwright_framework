@@ -279,12 +279,14 @@ See [tests/examples/enhanced-report-example.spec.ts](tests/examples/enhanced-rep
 
 ## Run Tests
 ```bash
-npx playwright test
+npm test
 ```
+
+The preflight runs once before each local npm test command (`npm test`, `npm run test:local`, and `npm run test:all`), not before each individual test. It verifies project dependencies and the Chromium, Firefox, and WebKit browsers, installing anything missing. It is enabled by default and can be disabled for a run by setting `PREFLIGHT=false` (for example, in PowerShell: `$env:PREFLIGHT="false"; npm test`). Set it to `true` or remove it to enable preflight again. The preflight is skipped when `CI=true`; `test:hub` and the Jenkins pipeline do not run it. Running `npx playwright test` directly bypasses the preflight.
 
 ## Run a specific suite
 ```bash
-npx playwright test --project=chromium tests/examples
+npm test -- --project=chromium tests/examples
 ```
 
 ## Example Proxy Configuration

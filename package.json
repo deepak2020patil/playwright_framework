@@ -1,19 +1,22 @@
 {
-    "dependencies": {
-        "playwright": "^1.60.0",
-        "xlsx": "^0.18.3"
-    },
-    "devDependencies": {
-        "@playwright/test": "^1.61.1",
-        "@types/node": "^25.9.1",
-        "dotenv": "^17.4.2"
-    },
-    "scripts": {
-        "test": "playwright test",
-        "test:local": "playwright test",
-        "test:all": "playwright test --project=chromium --project=firefox --project=webkit",
-        "test:hub": "node scripts/run-playwright.js",
-        "posttest": "node scripts/consolidate-results.js"
-    },
-    "author": "Deepak Patil <deepakpatil.slk@gmail.com>"
+  "dependencies": {
+    "playwright": "^1.65.1",
+    "xlsx": "^0.18.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^25.9.1",
+    "dotenv": "^17.4.2"
+  },
+  "scripts": {
+    "pretest": "node scripts/preflight.js",
+    "test": "playwright test",
+    "pretest:local": "node scripts/preflight.js",
+    "test:local": "playwright test",
+    "pretest:all": "node scripts/preflight.js",
+    "test:all": "playwright test --project=chromium --project=firefox --project=webkit",
+    "test:hub": "node scripts/run-playwright.js",
+    "posttest": "node scripts/consolidate-results.js"
+  },
+  "author": "Deepak Patil <deepakpatil.slk@gmail.com>"
 }
